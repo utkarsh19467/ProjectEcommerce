@@ -1,6 +1,6 @@
 ecommerce/settings/local.py
 
-*.vscode-project
+
 
 .DS_STORE
 
