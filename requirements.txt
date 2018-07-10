@@ -1,0 +1,13 @@
+certifi==2018.4.16
+cfe==0.0.15
+chardet==3.0.4
+dj-database-url==0.5.0
+Django==1.11.4
+gunicorn==19.9.0
+idna==2.7
+Pillow==5.1.0
+psycopg2==2.7.5
+pytz==2018.4
+requests==2.19.1
+stripe==1.82.2
+urllib3==1.23
