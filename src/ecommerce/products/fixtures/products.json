@@ -1,0 +1,58 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Kurta",
+        "slug": "kurta",
+        "description": "I like this very much",
+        "price": "200.00",
+        "image": "products/2824042823/2824042823.png",
+        "featured": false,
+        "active": true,
+        "timestamp": "2018-06-08T17:04:58.727Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Saree",
+        "slug": "saree",
+        "description": "Awesome",
+        "price": "1000.00",
+        "image": "products/670947292/670947292.png",
+        "featured": true,
+        "active": true,
+        "timestamp": "2018-06-08T17:04:58.727Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Pant",
+        "slug": "pant",
+        "description": "Nice one",
+        "price": "39.99",
+        "image": "products/1896128104/1896128104.png",
+        "featured": false,
+        "active": true,
+        "timestamp": "2018-06-08T17:04:58.727Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "shirt",
+        "slug": "shirt",
+        "description": "wow man",
+        "price": "39.99",
+        "image": "products/336425962/336425962.png",
+        "featured": false,
+        "active": true,
+        "timestamp": "2018-06-08T17:04:58.727Z"
+    }
+}
+]
