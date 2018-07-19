@@ -3,6 +3,7 @@ from django.views.generic import ListView,DetailView
 from .models import Product
 from analytics.mixins import ObjectViewedMixin
 from carts.models import Cart
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 # Create your views here.
 
@@ -20,6 +21,29 @@ class ProductFeaturedDetailView(ObjectViewedMixin,DetailView):
     #def get_queryset(self,*args,**kwargs):
         #request=self.request
         #return Product.objects.all()
+
+
+class UserProductHistoryView(LoginRequiredMixin,ListView):
+    queryset=Product.objects.all()
+    template_name="products/user-history-product.html"
+
+    def get_context_data(self,*args,**kwargs):
+        context=super(UserProductHistoryView,self).get_context_data(*args,**kwargs)
+        cart_obj,new_obj=Cart.objects.new_or_get(self.request)
+        context['cart']=cart_obj
+        return context
+
+    #def get_context_data(self,*args,**kwargs):
+        #context=super(ProductListView,self).get_context_data(*args,**kwargs)
+        #return context
+    
+    def get_queryset(self,*args,**kwargs):
+        request=self.request
+        views=request.user.objectviewed_set.by_model(Product)
+        #viewed_ids=[x.object_id for x in views]
+        #Product.objects.filter(pk__in=viewed_ids) one way to do
+        return views
+
 
 
 class ProductListView(ListView):

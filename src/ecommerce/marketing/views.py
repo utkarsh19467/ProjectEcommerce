@@ -5,6 +5,7 @@ from .models import MarketingPreference
 from django.http import HttpResponse
 from django.views.generic import UpdateView,View
 from .mixins import CsrfExemptMixin
+from django.conf import settings
 
 
 MAILCHIMP_EMAIL_LIST_ID = getattr(settings, "MAILCHIMP_EMAIL_LIST_ID", None)

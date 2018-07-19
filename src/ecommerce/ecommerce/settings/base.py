@@ -27,6 +27,21 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'utkarshshukla9619@gmail.com' 
+EMAIL_HOST_PASSWORD = 'Mamta1234'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Python ecommerce <utkarshshukla9619@gmail.com>'
+BASE_URL = '127.0.0.1:8000'
+
+
+MANAGERS = (
+    ('Utkarsh Shukla', "utkarshshukla9619@gmail.com"),
+)
+
+ADMINS = MANAGERS
+
 
 # Application definition
 
@@ -50,6 +65,12 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL='accounts.User'
+
+
+LOGIN_URL='/login/'
+LOGIN_URL_REDIRECT='/'
+LOGOUT_URL='/logout/'
+
 FORCE_SESSION_TO_ONE=False
 FORCE_INACTIVE_USER_ENDSESSION=False
 

@@ -12,6 +12,26 @@ User=settings.AUTH_USER_MODEL
 FORCE_SESSION_TO_ONE=getattr(settings,'FORCE_SESSION_TO_ONE',False)
 FORCE_INACTIVE_USER_ENDSESSION=getattr(settings,'FORCE_INACTIVE_USER_ENDSESSION',False)
 
+
+class ObjectViewedQuerySet(models.query.QuerySet):
+    def by_model(self,model_class):
+        c_type=ContentType.objects.get_for_model(model_class)
+        return self.filter(content_type=c_type)
+
+
+
+class ObjectViewedManager(models.Manager):
+    def get_queryset(self):
+        return ObjectViewedQuerySet(self.model,using=self._db)
+
+    def by_model(self,model_class):
+        return self.get_queryset().by_model(model_class)
+
+
+
+
+
+
 class ObjectViewed(models.Model):
     user=models.ForeignKey(User,blank=True,null=True)
     ip_address=models.CharField(max_length=220,blank=True,null=True)
@@ -21,6 +41,8 @@ class ObjectViewed(models.Model):
     timestamp=models.DateTimeField(auto_now_add=True)
 
 
+
+    objects=ObjectViewedManager()
     def __str__(self):
         return "%s viewed %s" %(self.content_object,self.timestamp)
 
@@ -93,8 +115,11 @@ user_logged_in.connect(user_logged_in_receiver)
 
 def object_viewed_receiver(sender,instance,request,*args,**kwargs):
     c_type=ContentType.objects.get_for_model(sender)
+    user=None
+    if request.user.is_authenticated(): 
+        user=request.user
     new_view_obj=ObjectViewed.objects.create(
-        user=request.user,
+        user=user,
         object_id=instance.id,
         content_type=c_type,
         ip_address=get_client_ip(request),

@@ -5,7 +5,10 @@ from django.core.urlresolvers import reverse
 from accounts.models import GuestEmail
 import stripe
 
-stripe.api_key="sk_test_P7IJ7FB3Iqev7xpQtEuPVGxn"
+
+STRIPE_SECRET_KEY=getattr(settings,"STRIPE_SECRET_KEY","sk_test_P7IJ7FB3Iqev7xpQtEuPVGxn")
+
+stripe.api_key=STRIPE_SECRET_KEY
 
 
 

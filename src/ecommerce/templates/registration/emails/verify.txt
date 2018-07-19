@@ -1,0 +1,10 @@
+Hello,
+
+Please activate your account of ecommerce for {{ email }} by clicking on link below
+
+{{ path }}
+
+Once you are activated you can login and shop!
+
+Thank you
+Utkarsh
