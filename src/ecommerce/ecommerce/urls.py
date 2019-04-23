@@ -21,6 +21,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView,RedirectView
 from django.contrib.auth.views import LogoutView
 from carts.views import cart_detail_api_view
+from orders.views import LibraryView
 from marketing.views import MarketingPreferenceUpdateView,MailchimpWebhookView
 from addresses.views import checkout_address_create_view,checkout_address_reuse_view
 from accounts.views import LoginView,RegistrationView,GuestRegisterView
@@ -53,6 +54,8 @@ urlpatterns = [
     url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
     url(r'^billing/payment-method/create/$',payment_method_create_view,name='billing-payment-method-endpoint'),
     url(r'^bootstrap/$',TemplateView.as_view(template_name="bootstrap/example.html")),
+    url(r'^library/$',LibraryView.as_view(),name="library"),
+    
     url(r'^products/',include("products.urls",namespace="products")),
     url(r'^search/',include("search.urls",namespace="search")),
     url(r'^cart/',include("carts.urls",namespace='cart')),

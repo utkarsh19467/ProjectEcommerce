@@ -28,7 +28,7 @@ def contact_page(request):
     contact_form=ContactForm(request.POST or None)
     context={
         "title":"This is a  contact Page",
-        "content":"Welcome to contact Page",
+        "content":"Welcome to E-learning Platform",
         "form":contact_form
         
     }

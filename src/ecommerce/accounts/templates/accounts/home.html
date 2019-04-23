@@ -36,13 +36,14 @@
       </div>
     </div>
 
-    <div class='col-12 col-md-3 my-3'>
+    <div class='col-12 col-md-3 my-3' id="billing">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Edit User Details</h5>
                   <div class='list-group'>
                         <a class='list-group-item' href='{% url "account:user-update" %}'>Profile Update</a>
                         <a class='list-group-item' href='{% url "password_change" %}'>Change password</a> 
+                        <a class='list-group-item' href='{% url "library" %}'>Library</a> 
                        
                        
                    </div>

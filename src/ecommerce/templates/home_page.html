@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div class='text-center'>
+<!--<div class='text-center'>
     <h1>Hii Utkarsh</h1>
     
 <h1>{{ title }}</h1>
@@ -16,13 +16,14 @@
       <div class='col'>
         <p>{{ content }}</p>
       </div>
-  </div>
-  <img src="{% static 'img/hey.jpeg' %}" class="img-fluid"/>
+  </div>-->
+  <br><br><br>
+  <img src="{% static 'img/hey.jpeg' %}" class="img-fluid" width="3500px" height="1500px"/>
   {% if request.user.is_authenticated %}
   <div class='row'>
     <div class='col'>
-      <h1>Premium</h1>
-      <p>{{ premium_content }}</p>
+  <!--    <h1>Premium</h1>
+      <p>{{ premium_content }}</p>-->
     </div>
 </div>
 {% endif %}
